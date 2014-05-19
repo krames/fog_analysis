@@ -37,6 +37,7 @@ end
 
 def service_to_introspect
   return @service if @service
+  return Fog::DNS if ARGV.first && ARGV.first.casecmp('dns').zero?
   arg = ARGV.first || 'storage'
   @service = Fog.const_get arg.capitalize
 end
