@@ -61,7 +61,7 @@ Fog.providers.keys.each do |provider|
       collections[collection_key(col)] << provider
       
       #create map of model#method to provider
-      methods = model.methods - Fog::Model.new.methods
+      methods = model.new.methods - Fog::Model.new.methods
       methods.each do |method|
         model_methods[method_key(model, method)] ||= []
         model_methods[method_key(model, method)] << provider
